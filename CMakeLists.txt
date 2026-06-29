@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.27)
 project(chat_service_project
         VERSION 1.0.0
-        DESCRIPTION "Mensageria/chat em tempo real."
+        DESCRIPTION "Mensageria/chat in time real."
         HOMEPAGE_URL "https://git.example.com/chat-service-project"
         LANGUAGES CXX)
 
